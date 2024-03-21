@@ -1,0 +1,50 @@
+{
+  "Notifiers": [
+    {
+      "groupname": "Purchasing",
+      "participants": [
+        {
+          "username": "user1",
+          "email": "user1@user1",
+          "status": "target"
+        },
+        {
+          "username": "user2",
+          "email": "user2@user2",
+          "status": "observer"
+        }
+      ]
+    },
+    {
+      "groupname": "Enginnering",
+      "participants": [
+        {
+          "username": "user3",
+          "email": "user3@user3",
+          "status": "observer"
+        },
+        {
+          "username": "user4",
+          "email": "user4@user4",
+          "status": "observer"
+        }
+      ]
+    },
+
+    {
+      "groupname": "Production",
+      "participants": [
+        {
+          "username": "user3",
+          "email": "user3@user3",
+          "status": "observer"
+        },
+        {
+          "username": "user4",
+          "email": "user4@user4",
+          "status": "observer"
+        }
+      ]
+    }
+  ]
+}
