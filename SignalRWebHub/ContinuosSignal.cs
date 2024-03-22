@@ -5,8 +5,8 @@ namespace SignalRWebHub
 {
     public class ContinuosSignal : BackgroundService
     {
-        private readonly IHubContext<ChatHub> _chatHub;
-        public ContinuosSignal(IHubContext<ChatHub> chatHub)
+        private readonly IHubContext<ChatHub, IChatHub> _chatHub;
+        public ContinuosSignal(IHubContext<ChatHub, IChatHub> chatHub)
         {
             _chatHub = chatHub;
         }
@@ -16,9 +16,9 @@ namespace SignalRWebHub
             while (!stoppingToken.IsCancellationRequested)
             {
                 // do something
-                _chatHub.ReceiveMessage("Message" + 1, "@" + DateTime.UtcNow.ToString());
-                await Task.Delay(1000, stoppingToken);
-
+                _chatHub.Clients.All.ReceiveMessage(i.ToString(), "Message" + i + "@" + DateTime.UtcNow.ToString());
+                await Task.Delay(5000, stoppingToken);
+                ++i;
             }
         }
     }

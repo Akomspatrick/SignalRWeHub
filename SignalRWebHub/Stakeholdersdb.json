@@ -1,0 +1,48 @@
+[
+  {
+    "room": "Purchasing_Room",
+    "participants": [
+      {
+        "username": "user1",
+        "email": "user1@user1",
+        "status": "target"
+      },
+      {
+        "username": "user2",
+        "email": "user2@user2",
+        "status": "observer"
+      }
+    ]
+  },
+  {
+    "room": "Enginnering_Room",
+    "participants": [
+      {
+        "username": "user3",
+        "email": "user3@user3",
+        "status": "observer"
+      },
+      {
+        "username": "user4",
+        "email": "user4@user4",
+        "status": "observer"
+      }
+    ]
+  },
+
+  {
+    "room": "Production_Room",
+    "participants": [
+      {
+        "username": "user3",
+        "email": "user3@user3",
+        "status": "observer"
+      },
+      {
+        "username": "user4",
+        "email": "user4@user4",
+        "status": "observer"
+      }
+    ]
+  }
+]

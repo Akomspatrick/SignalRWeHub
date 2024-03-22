@@ -1,16 +1,30 @@
 ﻿using Microsoft.AspNetCore.SignalR;
+using Newtonsoft.Json;
 using SignalRWebHub.DataService;
+using System.Text.RegularExpressions;
 
 namespace SignalRWebHub
 {
     public class ChatHub : Hub<IChatHub>
     {
         private readonly SharedDb _sharedDb;
-        // private readonly Notifiers _notifiers;
+        // private readonly List<Stakeholders> _stakeholders;
+
         public ChatHub(SharedDb sharedDb)//, Notifiers notifiers)
         {
             _sharedDb = sharedDb;
-            //  _notifiers = notifiers;
+
+
+
+            //var group = _stakeholders.GetGroup("Enginnering_Room");
+            //if (group != null)
+            //{
+            //    foreach (var participant in group.Participants)
+            //    {
+            //        // await Clients.User(participant.Email).SendAsync("ReceiveMessage", msg);
+            //        int x = 0;
+            //    }
+            //}
         }
 
 
@@ -67,25 +81,62 @@ namespace SignalRWebHub
         }
 
 
-        public async Task SendMessageToMany(string msg, string groupId, string ownerEmail)
+        //public async Task SendMessageToRoomParticipantsOld(string msg, string groupId, string ownerEmail)
+        //{
+
+
+        //    var group = GetGroup(groupId);
+        //    Message message = new Message
+        //    {
+        //        FromUser = ownerEmail,
+        //        MessageBody = msg,
+        //        MessageGroupGuid = Guid.NewGuid(),
+        //        DateSent = DateTime.UtcNow,
+        //        MessageType = "Chat",
+        //        MessageStatus = "Sent",
+        //        MessagePriority = "Normal",
+        //        MessageSubject = "Chat",
+        //        MessageTitle = "Chat",
+        //        MessageUrl = "Chat",
+        //        MessageOwner = false,
+        //        MessageId = Guid.NewGuid().ToString()
+        //    };
+        //    if (group != null)
+        //    {
+        //        foreach (var participant in group.Participants)
+        //        {
+        //            message.ToUser = participant.Email;
+        //            message.ToEmail = participant.Email;
+        //            message.MessageOwner = participant.Email == ownerEmail;
+        //            message.Guid = Guid.NewGuid();
+
+        //            await Clients.User(participant.Email).ReceiveSpecificMessage(message);
+        //            //await Clients.User(participant.Email).ReceiveSpecificMessage(participant.Email,groupId);
+        //        }
+        //    }
+        //}
+        public async Task SendMessageToRoomParticipants(Stakeholders group, Message message, string ownerEmail)
         {
+            if (group != null)
+            {
+                foreach (var participant in group.Participants)
+                {
+                    message.ToUser = participant.Email;
+                    message.FromUser = participant.Email;// this should be the email of the sender , get this from logged in user
 
+                    message.MessageOwner = participant.Email == ownerEmail;
+                    message.Guid = Guid.NewGuid();
 
-            //var group = _notifiers.GetGroup(groupId);
-            //if (group != null)
-            //{
-            //    foreach (var participant in group.Participants)
-            //    {
-            //        await Clients.User(participant.Email).SendAsync("ReceiveMessage", msg);
-            //    }
-            //}
+                    await Clients.User(participant.Email).ReceiveSpecificMessage(message);
+                }
+            }
         }
     }
 
     public interface IChatHub
     {
         Task ReceiveMessage(string user, string message);
-        Task ReceiveSpecificMessage(string user, string message);
+        Task ReceiveSpecificMessage(Message message);
         Task ReceiveConnectedUsers(User[] users);
     }
 }
