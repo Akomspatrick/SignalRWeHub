@@ -13,8 +13,7 @@
         public string Sender { get; set; }//FromUser sender
         public string MainRecipient { get; set; } //ToUser
         public string AllRecipients { get; set; }// this is the email of people from the group
-        //public string SourceEmail { get; set; }
-        //public string ToEmail { get; set; }
+
         public string OriginatingApp { get; set; }
         public string MessageBody { get; set; }
         public string MessageTitle { get; set; } = string.Empty;
@@ -26,7 +25,7 @@
 
         public string MessageStatus { get; set; }
         public string MessagePriority { get; set; }
-        // public string MessageSubject { get; set; }
+ 
 
     }
 }
