@@ -26,6 +26,11 @@
         "username": "user4",
         "email": "user4@user4",
         "status": "observer"
+      },
+      {
+        "username": "user2",
+        "email": "user2@user2",
+        "status": "observer"
       }
     ]
   },

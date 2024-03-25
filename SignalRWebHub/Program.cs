@@ -13,10 +13,25 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddSignalR();
 builder.Services.AddSingleton<SharedDb>();
 
+builder.Services.AddSingleton<List<Stakeholders>>(_ =>
+{
+    var stakeholder = new Stakeholders();
+    var list = stakeholder.LoadNotifiersFromJson();
+
+    foreach (var item in list)
+    {
+        Console.WriteLine(item.Room);
+        foreach (var participant in item.Participants)
+        {
+            Console.WriteLine(participant.Username);
+        }
+    }
+    return list;
+}
+);
 
 
-
-builder.Services.AddHostedService<ContinuosSignal>();
+//builder.Services.AddHostedService<ContinuosSignal>();
 builder.Services.AddSignalR();
 builder.Services.AddCors(options =>
 {

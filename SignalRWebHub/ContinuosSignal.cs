@@ -16,7 +16,8 @@ namespace SignalRWebHub
             while (!stoppingToken.IsCancellationRequested)
             {
                 // do something
-                _chatHub.Clients.All.ReceiveMessage(i.ToString(), "Message" + i + "@" + DateTime.UtcNow.ToString());
+                //  _chatHub.Clients.All.ReceiveMessage(i.ToString(), "Message" + i + "@" + DateTime.UtcNow.ToString());
+                Console.WriteLine("Signal Message =>" + i + " Sent @" + DateTime.UtcNow.ToString());
                 await Task.Delay(5000, stoppingToken);
                 ++i;
             }

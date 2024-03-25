@@ -11,7 +11,7 @@ namespace SignalRWebHub.DataService
         public string Status { get; set; } = "target";
     }
 
-    public class Stakeholders
+    public class Stakeholders : IStakeholders
     {
         private readonly string _sampleJsonFilePath = "Stakeholdersdb.json";
         //private List<Stakeholders> _stakeholders;

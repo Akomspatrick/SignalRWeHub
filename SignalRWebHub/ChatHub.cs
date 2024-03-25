@@ -121,8 +121,8 @@ namespace SignalRWebHub
             {
                 foreach (var participant in group.Participants)
                 {
-                    message.ToUser = participant.Email;
-                    message.FromUser = participant.Email;// this should be the email of the sender , get this from logged in user
+                    message.AllRecipients = participant.Email;
+                    message.Sender = participant.Email;// this should be the email of the sender , get this from logged in user
 
                     message.MessageOwner = participant.Email == ownerEmail;
                     message.Guid = Guid.NewGuid();
