@@ -14,7 +14,7 @@
         public string MainRecipient { get; set; } //ToUser
         public string AllRecipients { get; set; }// this is the email of people from the group
 
-        public string OriginatingApp { get; set; }
+        public string OriginatingApp { get; set; } = "APPNAME";
         public string MessageBody { get; set; }
         public string MessageTitle { get; set; } = string.Empty;
         public string MessageType { get; set; }
@@ -23,9 +23,10 @@
 
         public string MessageId { get; set; }
 
-        public string MessageStatus { get; set; }
-        public string MessagePriority { get; set; }
- 
+        public string MessageStatus { get; set; } = "NEW";//VIEWED,DONE,
+        public bool MessageVisible { get; set; } = true;// if it is false, it means it has been archived
+        public bool MessagePriority { get; set; } = true;////High, Normal,
+
 
     }
 }

@@ -4,12 +4,12 @@
     "participants": [
       {
         "username": "user1",
-        "email": "user1@user1",
+        "email": "assembler@massload.com",
         "status": "target"
       },
       {
         "username": "user2",
-        "email": "user2@user2",
+        "email": "softwareeng@massload.com",
         "status": "observer"
       }
     ]
@@ -19,7 +19,7 @@
     "participants": [
       {
         "username": "user3",
-        "email": "user3@user3",
+        "email": "assembler@massload.com",
         "status": "observer"
       },
       {
@@ -29,7 +29,7 @@
       },
       {
         "username": "user2",
-        "email": "user2@user2",
+        "email": "softwareeng@massload.com",
         "status": "observer"
       }
     ]

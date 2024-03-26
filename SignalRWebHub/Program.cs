@@ -23,7 +23,7 @@ builder.Services.AddSingleton<List<Stakeholders>>(_ =>
         Console.WriteLine(item.Room);
         foreach (var participant in item.Participants)
         {
-            Console.WriteLine(participant.Username);
+            Console.WriteLine(participant.Email);
         }
     }
     return list;

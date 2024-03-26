@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using SignalRWebHub.DataService;
+using System.Reflection;
 
 namespace SignalRWebHub.Controllers
 {
@@ -54,37 +55,73 @@ namespace SignalRWebHub.Controllers
 
         }
 
-
-
         [HttpPost(Name = "SendMessage")]
-        public async Task<IActionResult> SendMessage(string groupId = "Enginnering_Room", string content = "This is the content", string sender = "sender@massload.com", string targetRecipient = "user2@user2", string messageTitle = "MessageTitle", string messagePriority = "Normal")
+        public async Task<IActionResult> SendMessage([FromBody] MessageDto messageDto)
         {
-            var group = _realstakeholders.FirstOrDefault(x => x.Room == groupId);
+            // Use messageDto properties here...
+
+
+            // public async Task<IActionResult> SendMessage([FromBody] string groupId = "Enginnering_R``oom2", string messageStatus = "NEW", bool messageVisible = true, string content = "This is the content", string sender = "sender@massload.com", string targetRecipient = "user2@user2", string messageTitle = "MessageTitle", string messagePriority = "Normal")
+
+            var group = _realstakeholders.FirstOrDefault(x => x.Room == messageDto.GroupId);
             if (group == null)
             {
-                return NotFound();
+                _logger.LogInformation($"Group {messageDto.GroupId} not found");
+                return NotFound($"Group {messageDto.GroupId} not found");
             }
 
             Message message = new Message
             {
-                Sender = sender,
-                MainRecipient = targetRecipient,
+                Sender = messageDto.Sender,
+                MainRecipient = messageDto.TargetRecipient,
                 AllRecipients = "",
-                MessageBody = content,
+                MessageBody = messageDto.Content,
                 MessageGroupGuid = Guid.NewGuid(),
                 DateSent = DateTime.UtcNow,
                 MessageType = "messageType",
-                MessageStatus = "messageStatus",
-                MessagePriority = messagePriority,
-                MessageTitle = messageTitle,
+                MessageStatus = messageDto.MessageStatus,
+                MessagePriority = messageDto.MessagePriority,
+                MessageTitle = messageDto.MessageTitle,
                 MessageUrl = "messageUrl",
                 MessageOwner = false,
+                MessageVisible = messageDto.MessageVisible,
                 MessageId = Guid.NewGuid().ToString()
             };
             Console.WriteLine("Message sent" + message.MessageBody);
             await SendMessageToRoomParticipants(group, message);
             return Ok();
         }
+
+        //[HttpPost(Name = "SendMessage")]
+        //public async Task<IActionResult> SendMessage(string groupId = "Enginnering_Room",string messageStatus="NEW", bool messageVisible=true,  string content = "This is the content", string sender = "sender@massload.com", string targetRecipient = "user2@user2", string messageTitle = "MessageTitle", string messagePriority = "Normal")
+        //{
+        //    var group = _realstakeholders.FirstOrDefault(x => x.Room == groupId);
+        //    if (group == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    Message message = new Message
+        //    {
+        //        Sender = sender,
+        //        MainRecipient = targetRecipient,
+        //        AllRecipients = "",
+        //        MessageBody = content,
+        //        MessageGroupGuid = Guid.NewGuid(),
+        //        DateSent = DateTime.UtcNow,
+        //        MessageType = "messageType",
+        //        MessageStatus = messageStatus,
+        //        MessagePriority = messagePriority,
+        //        MessageTitle = messageTitle,
+        //        MessageUrl = "messageUrl",
+        //        MessageOwner = false,
+        //        MessageVisible = messageVisible,
+        //        MessageId = Guid.NewGuid().ToString()
+        //    };
+        //    Console.WriteLine("Message sent" + message.MessageBody);
+        //    await SendMessageToRoomParticipants(group, message);
+        //    return Ok();
+        //}
         private readonly string _stakeholdersFilePath = "Stakeholdersdb.json";
         private List<Stakeholders> LoadStakeholders()
         {

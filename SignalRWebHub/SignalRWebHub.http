@@ -4,3 +4,200 @@ GET {{SignalRWebHub_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
+
+
+###  OWNERS HIGH PRIORITIES NEW VIEWED AND DONE MESSAGES
+###
+POST {{SignalRWebHub_HostAddress}}/weatherforecast/
+Content-Type: application/json
+
+{
+    "groupId": "Enginnering_Room",
+    "messageStatus": "NEW",
+    "messageVisible": true,
+    "messageTitle": "Owner_New-Message/High-Priority", 
+    "content": "This is a new message with a high priority sent to the owner, you can acknowledge viewing ,done ,archive and reply using the icons below", 
+    "sender": "Admin@massload.com", 
+    "targetRecipient":"softwareeng@massload.com",
+    "messagePriority": true
+}
+
+
+
+###
+POST {{SignalRWebHub_HostAddress}}/weatherforecast/
+Content-Type: application/json
+
+{
+    "groupId": "Enginnering_Room",
+    "messageStatus": "VIEWED",
+    "messageVisible": true,
+    "messageTitle": "Owner_Viewed-Message/High-Priority", 
+    "content": "This is a View message with a high priority sent to the owner", 
+    "sender": "Admin@massload.com", 
+    "targetRecipient":"softwareeng@massload.com",
+    "messagePriority": true
+}
+
+###
+
+POST {{SignalRWebHub_HostAddress}}/weatherforecast/
+Content-Type: application/json
+
+{
+    "groupId": "Enginnering_Room",
+    "messageStatus": "DONE",
+    "messageVisible": true,
+    "messageTitle": "Owner_Done-Message/High-Priority", 
+    "content": "This is a View message with a high priority sent to the owner", 
+    "sender": "Admin@massload.com", 
+    "targetRecipient":"softwareeng@massload.com",
+    "messagePriority": true
+}
+
+###
+### OWNERS LOW PRIORITIES NEW VIEWED AND DONE MESSAGES
+POST {{SignalRWebHub_HostAddress}}/weatherforecast/
+Content-Type: application/json
+
+{
+    "groupId": "Enginnering_Room",
+    "messageStatus": "NEW",
+    "messageVisible": true,
+    "messageTitle": "Owner_New-Message/Low-Priority", 
+  "content": "This is a new message with a low priority sent to the owner, you can acknowledge viewing ,done ,archive and reply using the icons below", 
+    "sender": "Admin@massload.com", 
+    "targetRecipient":"softwareeng@massload.com",
+    "messagePriority": false
+}
+
+###
+POST {{SignalRWebHub_HostAddress}}/weatherforecast/
+Content-Type: application/json
+
+{
+    "groupId": "Enginnering_Room",
+    "messageStatus": "VIEWED",
+    "messageVisible": true,
+    "messageTitle": "Owner_Viewed-Message/Low-Priority", 
+    "content": "This is a View message with a high priority sent to the owner", 
+    "sender": "Admin@massload.com", 
+    "targetRecipient":"softwareeng@massload.com",
+    "messagePriority": false
+}
+
+
+
+###
+POST {{SignalRWebHub_HostAddress}}/weatherforecast/
+Content-Type: application/json
+
+{
+    "groupId": "Enginnering_Room",
+    "messageStatus": "DONE",
+    "messageVisible": true,
+    "messageTitle": "Owner_Done-Message/Low-Priority", 
+    "content": "This is a View message with a high priority sent to the owner", 
+    "sender": "Admin@massload.com", 
+    "targetRecipient":"softwareeng@massload.com",
+    "messagePriority": false
+}
+
+###  PARTICIPANT HIGH PRIORITIES NEW VIEWED AND DONE MESSAGES
+###
+POST {{SignalRWebHub_HostAddress}}/weatherforecast/
+Content-Type: application/json
+
+{
+    "groupId": "Enginnering_Room",
+    "messageStatus": "NEW",
+    "messageVisible": true,
+    "messageTitle": "Participant_New-Message/High-Priority", 
+    "content": "This is a new message with a high priority sent to the owner, you can acknowledge viewing  ,archive and reply using the icons below", 
+    "sender": "Admin@massload.com", 
+    "targetRecipient":"assembler@massload.com",
+    "messagePriority": true
+}
+
+
+
+###
+POST {{SignalRWebHub_HostAddress}}/weatherforecast/
+Content-Type: application/json
+
+{
+    "groupId": "Enginnering_Room",
+    "messageStatus": "VIEWED",
+    "messageVisible": true,
+    "messageTitle": "Participant_Viewed-Message/High-Priority", 
+    "content": "This is a View message with a high priority sent to  assembler@massload.com but can been seen as a participant", 
+    "sender": "Admin@massload.com", 
+    "targetRecipient":"assembler@massload.com",
+    "messagePriority":true
+}
+
+###
+
+POST {{SignalRWebHub_HostAddress}}/weatherforecast/
+Content-Type: application/json
+
+{
+    "groupId": "Enginnering_Room",
+    "messageStatus": "DONE",
+    "messageVisible": true,
+    "messageTitle": "Participant_Done-Message/High-Priority", 
+    "content": "This is a View message with a high priority sent to to  assembler@massload.com but  participant receives a copy", 
+    "sender": "Admin@massload.com", 
+    "targetRecipient":"assembler@massload.com",
+    "messagePriority": true
+}
+
+###
+###
+### PARTICIPANTS LOW PRIORITIES NEW VIEWED AND DONE MESSAGES
+POST {{SignalRWebHub_HostAddress}}/weatherforecast/
+Content-Type: application/json
+
+{
+    "groupId": "Enginnering_Room",
+    "messageStatus": "NEW",
+    "messageVisible": true,
+    "messageTitle": "Participant_New-Message/Low-Priority", 
+  "content": "This is a new message with a low priority sent to   assembler@massload.com but received as a participant, you can acknowledge viewing  ,archive and reply using the icons below", 
+    "sender": "Admin@massload.com", 
+    "targetRecipient":"assembler@massload.com",
+    "messagePriority": false
+}
+
+###
+POST {{SignalRWebHub_HostAddress}}/weatherforecast/
+Content-Type: application/json
+
+{
+    "groupId": "Enginnering_Room",
+    "messageStatus": "VIEWED",
+    "messageVisible": true,
+    "messageTitle": "Participant_Viewed-Message/Low-Priority", 
+    "content": "This is a View message with a low priority sent to   assembler@massload.com but received as a participant", 
+    "sender": "Admin@massload.com", 
+    "targetRecipient":"assembler@massload.com",
+    "messagePriority": false
+}
+
+
+
+###
+
+POST {{SignalRWebHub_HostAddress}}/weatherforecast/
+Content-Type: application/json
+
+{
+    "groupId": "Enginnering_Room",
+    "messageStatus": "DONE",
+    "messageVisible": true,
+    "messageTitle": "Participant_Done-Message/Low-Priority", 
+    "content": "This is a View message with a low priority sent to to  assembler@massload.com but received as a participant", 
+    "sender": "Admin@massload.com", 
+    "targetRecipient":"assembler@massload.com",
+    "messagePriority": false
+}
