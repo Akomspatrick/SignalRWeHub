@@ -63,15 +63,16 @@ namespace SignalRWebHub.Controllers
 
             // public async Task<IActionResult> SendMessage([FromBody] string groupId = "Enginnering_R``oom2", string messageStatus = "NEW", bool messageVisible = true, string content = "This is the content", string sender = "sender@massload.com", string targetRecipient = "user2@user2", string messageTitle = "MessageTitle", string messagePriority = "Normal")
 
-            var group = _realstakeholders.FirstOrDefault(x => x.Room == messageDto.GroupId);
+            var group = _realstakeholders.FirstOrDefault(x => x.Room == messageDto.RoomName);
             if (group == null)
             {
-                _logger.LogInformation($"Group {messageDto.GroupId} not found");
-                return NotFound($"Group {messageDto.GroupId} not found");
+                _logger.LogInformation($"Group {messageDto.RoomName} not found");
+                return NotFound($"Group {messageDto.RoomName} not found");
             }
 
             Message message = new Message
             {
+                RoomName= messageDto.RoomName,
                 Sender = messageDto.Sender,
                 MainRecipient = messageDto.TargetRecipient,
                 AllRecipients = "",

@@ -3,7 +3,7 @@
     public class MessageDto
     {
 
-        public string GroupId { get; set; } = "Enginnering_Room2";
+        public string RoomName { get; set; } = "Enginnering_Room2";
         public string MessageStatus { get; set; } = "NEW";
         public bool MessageVisible { get; set; } = true;
         public string Content { get; set; } = "This is the content";

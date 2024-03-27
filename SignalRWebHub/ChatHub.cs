@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using Newtonsoft.Json;
+using SignalRWebHub.Controllers;
 using SignalRWebHub.DataService;
 using System.Text.RegularExpressions;
 
@@ -9,10 +10,11 @@ namespace SignalRWebHub
     {
         private readonly SharedDb _sharedDb;
         // private readonly List<Stakeholders> _stakeholders;
-
-        public ChatHub(SharedDb sharedDb)//, Notifiers notifiers)
+        private readonly List<Stakeholders> _realstakeholders;
+        public ChatHub(SharedDb sharedDb, List<Stakeholders> realstakeholders)//, Notifiers notifiers)
         {
             _sharedDb = sharedDb;
+            _realstakeholders = realstakeholders;   
 
 
 
@@ -131,6 +133,30 @@ namespace SignalRWebHub
                 }
             }
         }
+        public async Task ReplyMessageToRoomParticipants( Message message)
+        {
+            var group = _realstakeholders.FirstOrDefault(x => x.Room == message.RoomName);
+            if (group == null)
+            {
+                //_logger.LogInformation($"Group {messageDto.RoomName} not found");
+                return;// NotFound($"Group {messageDto.RoomName} not found");
+            }
+
+            if (group != null)
+            {
+                foreach (var participant in group.Participants)
+                {
+                    message.AllRecipients = participant.Email;
+                    message.Sender = participant.Email;// this should be the email of the sender , get this from logged in user
+
+                    //message.MessageOwner = participant.Email == ownerEmail;
+                    message.Guid = Guid.NewGuid();
+                    await Clients.All.ReceiveSpecificMessage(message);
+                   // await Clients.User(participant.Email).ReceiveSpecificMessage(message);
+                }
+            }
+        }
+
     }
 
     public interface IChatHub

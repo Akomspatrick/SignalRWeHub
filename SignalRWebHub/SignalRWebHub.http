@@ -12,7 +12,7 @@ POST {{SignalRWebHub_HostAddress}}/weatherforecast/
 Content-Type: application/json
 
 {
-    "groupId": "Enginnering_Room",
+    "RoomName": "Enginnering_Room",
     "messageStatus": "NEW",
     "messageVisible": true,
     "messageTitle": "Owner_New-Message/High-Priority", 
@@ -29,7 +29,7 @@ POST {{SignalRWebHub_HostAddress}}/weatherforecast/
 Content-Type: application/json
 
 {
-    "groupId": "Enginnering_Room",
+    "RoomName": "Enginnering_Room",
     "messageStatus": "VIEWED",
     "messageVisible": true,
     "messageTitle": "Owner_Viewed-Message/High-Priority", 
@@ -45,7 +45,7 @@ POST {{SignalRWebHub_HostAddress}}/weatherforecast/
 Content-Type: application/json
 
 {
-    "groupId": "Enginnering_Room",
+    "RoomName": "Enginnering_Room",
     "messageStatus": "DONE",
     "messageVisible": true,
     "messageTitle": "Owner_Done-Message/High-Priority", 
@@ -61,7 +61,7 @@ POST {{SignalRWebHub_HostAddress}}/weatherforecast/
 Content-Type: application/json
 
 {
-    "groupId": "Enginnering_Room",
+    "RoomName": "Enginnering_Room",
     "messageStatus": "NEW",
     "messageVisible": true,
     "messageTitle": "Owner_New-Message/Low-Priority", 
@@ -76,7 +76,7 @@ POST {{SignalRWebHub_HostAddress}}/weatherforecast/
 Content-Type: application/json
 
 {
-    "groupId": "Enginnering_Room",
+    "RoomName": "Enginnering_Room",
     "messageStatus": "VIEWED",
     "messageVisible": true,
     "messageTitle": "Owner_Viewed-Message/Low-Priority", 
@@ -93,7 +93,7 @@ POST {{SignalRWebHub_HostAddress}}/weatherforecast/
 Content-Type: application/json
 
 {
-    "groupId": "Enginnering_Room",
+    "RoomName": "Enginnering_Room",
     "messageStatus": "DONE",
     "messageVisible": true,
     "messageTitle": "Owner_Done-Message/Low-Priority", 
@@ -109,7 +109,7 @@ POST {{SignalRWebHub_HostAddress}}/weatherforecast/
 Content-Type: application/json
 
 {
-    "groupId": "Enginnering_Room",
+    "RoomName": "Enginnering_Room",
     "messageStatus": "NEW",
     "messageVisible": true,
     "messageTitle": "Participant_New-Message/High-Priority", 
@@ -126,7 +126,7 @@ POST {{SignalRWebHub_HostAddress}}/weatherforecast/
 Content-Type: application/json
 
 {
-    "groupId": "Enginnering_Room",
+    "RoomName": "Enginnering_Room",
     "messageStatus": "VIEWED",
     "messageVisible": true,
     "messageTitle": "Participant_Viewed-Message/High-Priority", 
@@ -142,7 +142,7 @@ POST {{SignalRWebHub_HostAddress}}/weatherforecast/
 Content-Type: application/json
 
 {
-    "groupId": "Enginnering_Room",
+    "RoomName": "Enginnering_Room",
     "messageStatus": "DONE",
     "messageVisible": true,
     "messageTitle": "Participant_Done-Message/High-Priority", 
@@ -159,7 +159,7 @@ POST {{SignalRWebHub_HostAddress}}/weatherforecast/
 Content-Type: application/json
 
 {
-    "groupId": "Enginnering_Room",
+    "RoomName": "Enginnering_Room",
     "messageStatus": "NEW",
     "messageVisible": true,
     "messageTitle": "Participant_New-Message/Low-Priority", 
@@ -174,7 +174,7 @@ POST {{SignalRWebHub_HostAddress}}/weatherforecast/
 Content-Type: application/json
 
 {
-    "groupId": "Enginnering_Room",
+    "RoomName": "Enginnering_Room",
     "messageStatus": "VIEWED",
     "messageVisible": true,
     "messageTitle": "Participant_Viewed-Message/Low-Priority", 
@@ -192,7 +192,7 @@ POST {{SignalRWebHub_HostAddress}}/weatherforecast/
 Content-Type: application/json
 
 {
-    "groupId": "Enginnering_Room",
+    "RoomName": "Enginnering_Room",
     "messageStatus": "DONE",
     "messageVisible": true,
     "messageTitle": "Participant_Done-Message/Low-Priority", 
