@@ -10,6 +10,7 @@
         public string Sender { get; set; } = "sender@massload.com";
         public string TargetRecipient { get; set; } = "user2@user2";
         public string MessageTitle { get; set; } = "MessageTitle";
+        public string MessageOwnerStatus { get; set; } = "NEW";
         public bool MessagePriority { get; set; } = true;
 
     }

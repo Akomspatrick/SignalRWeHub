@@ -3,7 +3,10 @@ using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using SignalRWebHub.DataService;
+using System.Collections.Specialized;
+using System;
 using System.Reflection;
+using System.Text;
 
 namespace SignalRWebHub.Controllers
 {
@@ -44,16 +47,50 @@ namespace SignalRWebHub.Controllers
         // }
 
 
+        //[HttpGet(Name = "NewGroup")]
+        //public Stakeholders NewGroup(string Id)
+        //{
+        //    var group = _realstakeholders.FirstOrDefault(x => x.Room == Id);
+        //    return group;
+
+
+
+
+
+        //}
         [HttpGet(Name = "NewGroup")]
-        public Stakeholders NewGroup(string Id)
+        public  IActionResult NewGroup(string Id)
         {
-            var group = _realstakeholders.FirstOrDefault(x => x.Room == Id);
-            return group;
+            //var group = _realstakeholders.FirstOrDefault(x => x.Room == Id);
+            //return group;
 
 
+            /// create a new httpresponse object
+            /// 
+            HttpResponse response = HttpContext.Response;
+            NameValueCollection collections = new NameValueCollection();
+            //collections.Add("FirstName", txtFirstName.Text.Trim());
+            //collections.Add("LastName", txtLastName.Text.Trim());
+            string remoteUrl = "http://localhost:3000/quickstart?value=Akoms";
 
+            response.Clear();
+
+            StringBuilder s = new StringBuilder();
+            s.Append("<html>");
+            s.AppendFormat("<body onload='document.forms[\"form\"].submit()'>");
+            s.AppendFormat("<form name='form' action='{0}' method='post'>", remoteUrl);
+            //foreach (string key in data)
+            //{
+            //    s.AppendFormat("<input type='hidden' name='{0}' value='{1}' />", key, data[key]);
+            //}
+            s.Append("</form></body></html>");
+             response.WriteAsync(s.ToString());
+
+            return Ok();
+           
 
         }
+
 
         [HttpPost(Name = "SendMessage")]
         public async Task<IActionResult> SendMessage([FromBody] MessageDto messageDto)
@@ -73,6 +110,7 @@ namespace SignalRWebHub.Controllers
             Message message = new Message
             {
                 RoomName= messageDto.RoomName,
+                MessageOwnerStatus = messageDto.MessageOwnerStatus,
                 Sender = messageDto.Sender,
                 MainRecipient = messageDto.TargetRecipient,
                 AllRecipients = "",

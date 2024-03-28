@@ -21,6 +21,7 @@
 
         public string MessageId { get; set; }
         public string RoomName { get; set; }
+        public string MessageOwnerStatus { get; set; } = "NEW";//VIEWED,DONE,
         public string MessageStatus { get; set; } = "NEW";//VIEWED,DONE,
         public bool MessageVisible { get; set; } = true;// if it is false, it means it has been archived
         public bool MessagePriority { get; set; } = true;////High, Normal,
