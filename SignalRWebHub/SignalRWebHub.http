@@ -18,9 +18,8 @@ Content-Type: application/json
     "messageTitle": "Owner_New-Message/High-Priority", 
     "content": "This is a new message with a high priority sent to the owner, you can acknowledge viewing ,done ,archive and reply using the icons below", 
     "sender": "Admin@massload.com", 
-    "MessageOnwerStatus": "NEW",
-    "targetRecipient":"softwareeng@massload.com",
-    "messagePriority": true
+    "targetRecipient":"softwareeng@massload.com"
+
 }
 
 
@@ -36,9 +35,7 @@ Content-Type: application/json
     "messageTitle": "Owner_Viewed-Message/High-Priority", 
     "content": "This is a View message with a high priority sent to the owner", 
     "sender": "Admin@massload.com", 
-     "MessageOnwerStatus": "VIEWED",
-    "targetRecipient":"softwareeng@massload.com",
-    "messagePriority": true
+    "targetRecipient":"softwareeng@massload.com"
 }
 
 ###
@@ -53,9 +50,8 @@ Content-Type: application/json
     "messageTitle": "Owner_Done-Message/High-Priority", 
     "content": "This is a View message with a high priority sent to the owner", 
     "sender": "Admin@massload.com", 
-     "MessageOnwerStatus": "DONE",
-    "targetRecipient":"softwareeng@massload.com",
-    "messagePriority": true
+    "targetRecipient":"softwareeng@massload.com"
+ 
 }
 
 ###
@@ -70,7 +66,7 @@ Content-Type: application/json
     "messageTitle": "Owner_New-Message/Low-Priority", 
   "content": "This is a new message with a low priority sent to the owner, you can acknowledge viewing ,done ,archive and reply using the icons below", 
     "sender": "Admin@massload.com", 
-"MessageOnwerStatus": "NEW",
+"MessageOwnerStatus": "NEW",
     "targetRecipient":"softwareeng@massload.com",
     "messagePriority": false
 }
@@ -86,7 +82,7 @@ Content-Type: application/json
     "messageTitle": "Owner_Viewed-Message/Low-Priority", 
     "content": "This is a View message with a high priority sent to the owner", 
     "sender": "Admin@massload.com", 
-"MessageOnwerStatus": "VIEWED",
+"MessageOwnerStatus": "VIEWED",
     "targetRecipient":"softwareeng@massload.com",
     "messagePriority": false
 }
@@ -104,9 +100,8 @@ Content-Type: application/json
     "messageTitle": "Owner_Done-Message/Low-Priority", 
     "content": "This is a View message with a high priority sent to the owner", 
     "sender": "Admin@massload.com", 
-"MessageOnwerStatus": "DONE",
-    "targetRecipient":"softwareeng@massload.com",
-    "messagePriority": false
+    "targetRecipient":"softwareeng@massload.com"
+  
 }
 
 ###  PARTICIPANT HIGH PRIORITIES NEW VIEWED AND DONE MESSAGES
@@ -121,9 +116,8 @@ Content-Type: application/json
     "messageTitle": "Participant_New-Message/High-Priority/Target owner not viewed", 
     "content": "This is a new message with a high priority sent to the owner, you can acknowledge viewing  ,archive and reply using the icons below", 
     "sender": "Admin@massload.com", 
-     "MessageOnwerStatus":"NEW",
-    "targetRecipient":"assembler@massload.com",
-    "messagePriority": true
+    "targetRecipient":"assembler@massload.com"
+
 }
 
 
@@ -139,27 +133,25 @@ Content-Type: application/json
     "messageTitle": "Participant_Viewed-Message/High-Priority- TargetOwner NotViewed", 
     "content": "This is a View message with a high priority sent to  assembler@massload.com but can been seen as a participant", 
     "sender": "Admin@massload.com", 
-    "MessageOnwerStatus":"NEW",
-    "targetRecipient":"assembler@massload.com",
-    "messagePriority":true
+    "targetRecipient":"assembler@massload.com"
 }
 
 ###
 
-# POST {{SignalRWebHub_HostAddress}}/weatherforecast/
-# Content-Type: application/json
+POST {{SignalRWebHub_HostAddress}}/weatherforecast/
+Content-Type: application/json
 
-# {
-#     "RoomName": "Enginnering_Room",
-#     "messageStatus": "DONE",
-#     "messageVisible": true,
-#     "messageTitle": "Participant_Done-Message/High-Priority", 
-#     "content": "This is a View message with a high priority sent to to  assembler@massload.com but  participant receives a copy", 
-#     "sender": "Admin@massload.com", 
-#      "MessageOnwerStatus":
-#     "targetRecipient":"assembler@massload.com",
-#     "messagePriority": true
-# }
+{
+    "RoomName": "Enginnering_Room",
+    "messageStatus": "DONE",
+    "messageVisible": true,
+    "messageTitle": "Participant_Done-Message/High-Priority", 
+    "content": "This is a View message with a high priority sent to to  assembler@massload.com but  participant receives a copy", 
+    "sender": "Admin@massload.com", 
+
+    "targetRecipient":"assembler@massload.com"
+
+}
 
 ###
 ###
@@ -174,9 +166,9 @@ Content-Type: application/json
     "messageTitle": "Participant_New-Message/Low-PriorityOWNERVIEWED", 
   "content": "This is a new message with a low priority sent to   assembler@massload.com but received as a participant, you can acknowledge viewing  ,archive and reply using the icons below", 
     "sender": "Admin@massload.com", 
-    "MessageOnwerStatus":"VIEWED",
-    "targetRecipient":"assembler@massload.com",
-    "messagePriority": false
+
+    "targetRecipient":"assembler@massload.com"
+
 }
 
 ###
@@ -190,7 +182,7 @@ Content-Type: application/json
     "messageTitle": "Participant_Viewed-Message/Low-Priority", 
     "content": "This is a View message with a low priority sent to   assembler@massload.com but received as a participant", 
     "sender": "Admin@massload.com", 
-    "MessageOnwerStatus":"DONE",
+    "MessageOwnerStatus":"DONE",
     "targetRecipient":"assembler@massload.com",
     "messagePriority": false
 }
@@ -209,7 +201,7 @@ Content-Type: application/json
     "messageTitle": "Participant_Done-Message/Low-Priority owner done", 
     "content": "This is a View message with a low priority sent to to  assembler@massload.com but received as a participant", 
     "sender": "Admin@massload.com", 
-"MessageOnwerStatus":"DONE",
+"MessageOwnerStatus":"DONE",
     "targetRecipient":"assembler@massload.com",
     "messagePriority": false
 }

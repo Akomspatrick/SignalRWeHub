@@ -110,18 +110,18 @@ namespace SignalRWebHub.Controllers
             Message message = new Message
             {
                 RoomName= messageDto.RoomName,
-                MessageOwnerStatus = messageDto.MessageOwnerStatus,
+                //MessageOwnerStatus = messageDto.MessageOwnerStatus,
                 Sender = messageDto.Sender,
                 MainRecipient = messageDto.TargetRecipient,
                 AllRecipients = "",
                 MessageBody = messageDto.Content,
                 MessageGroupGuid = Guid.NewGuid(),
                 DateSent = DateTime.UtcNow,
-                MessageType = "messageType",
+               // MessageType = "messageType",
                 MessageStatus = messageDto.MessageStatus,
-                MessagePriority = messageDto.MessagePriority,
+                //MessagePriority = messageDto.MessagePriority,
                 MessageTitle = messageDto.MessageTitle,
-                MessageUrl = "messageUrl",
+                //MessageUrl = "messageUrl",
                 MessageOwner = false,
                 MessageVisible = messageDto.MessageVisible,
                 MessageId = Guid.NewGuid().ToString()
