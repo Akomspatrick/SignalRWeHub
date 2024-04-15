@@ -59,7 +59,7 @@ namespace SignalRWebHub.Controllers
 
         //}
         [HttpGet(Name = "NewGroup")]
-        public  IActionResult NewGroup(string Id)
+        public IActionResult NewGroup(string Id)
         {
             //var group = _realstakeholders.FirstOrDefault(x => x.Room == Id);
             //return group;
@@ -84,10 +84,10 @@ namespace SignalRWebHub.Controllers
             //    s.AppendFormat("<input type='hidden' name='{0}' value='{1}' />", key, data[key]);
             //}
             s.Append("</form></body></html>");
-             response.WriteAsync(s.ToString());
+            response.WriteAsync(s.ToString());
 
             return Ok();
-           
+
 
         }
 
@@ -109,15 +109,15 @@ namespace SignalRWebHub.Controllers
 
             Message message = new Message
             {
-                RoomName= messageDto.RoomName,
-                //MessageOwnerStatus = messageDto.MessageOwnerStatus,
+                RoomName = messageDto.RoomName,
+                MessageOwnerStatus = messageDto.MessageOwnerStatus,
                 Sender = messageDto.Sender,
                 MainRecipient = messageDto.TargetRecipient,
                 AllRecipients = "",
                 MessageBody = messageDto.Content,
                 MessageGroupGuid = Guid.NewGuid(),
                 DateSent = DateTime.UtcNow,
-               // MessageType = "messageType",
+                // MessageType = "messageType",
                 MessageStatus = messageDto.MessageStatus,
                 //MessagePriority = messageDto.MessagePriority,
                 MessageTitle = messageDto.MessageTitle,

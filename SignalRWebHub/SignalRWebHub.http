@@ -6,20 +6,20 @@ Accept: application/json
 ###
 
 
-###  OWNERS HIGH PRIORITIES NEW VIEWED AND DONE MESSAGES
+###  OWNERS  NEW VIEWED AND DONE MESSAGES
 ###
 POST {{SignalRWebHub_HostAddress}}/weatherforecast/
 Content-Type: application/json
 
 {
     "RoomName": "Enginnering_Room",
-    "messageStatus": "NEW",
+    "messageStatus": "NOTVIEWED",
     "messageVisible": true,
-    "messageTitle": "Owner_New-Message/High-Priority", 
-    "content": "This is a new message with a high priority sent to the owner, you can acknowledge viewing ,done ,archive and reply using the icons below", 
+    "messageTitle": "Owner_New-Message-NOTVIEWED-NOTDONE", 
+    "content": "This is a new message  sent to the owner ", 
     "sender": "Admin@massload.com", 
+    "MessageOwnerStatus": "NOTDONE",
     "targetRecipient":"softwareeng@massload.com"
-
 }
 
 
@@ -32,9 +32,10 @@ Content-Type: application/json
     "RoomName": "Enginnering_Room",
     "messageStatus": "VIEWED",
     "messageVisible": true,
-    "messageTitle": "Owner_Viewed-Message/High-Priority", 
-    "content": "This is a View message with a high priority sent to the owner", 
+    "messageTitle": "Owner_VIEWED-NOTDONE", 
+    "content": "This is a View message ", 
     "sender": "Admin@massload.com", 
+     "MessageOwnerStatus": "NOTDONE",
     "targetRecipient":"softwareeng@massload.com"
 }
 
@@ -45,63 +46,30 @@ Content-Type: application/json
 
 {
     "RoomName": "Enginnering_Room",
-    "messageStatus": "DONE",
+    "messageStatus": "VIEWED",
     "messageVisible": true,
-    "messageTitle": "Owner_Done-Message/High-Priority", 
-    "content": "This is a View message with a high priority sent to the owner", 
+    "messageTitle": "Owner_VIEWED-DONE", 
+    "content": "This is a done message", 
+    "MessageOwnerStatus": "DONE",
     "sender": "Admin@massload.com", 
     "targetRecipient":"softwareeng@massload.com"
  
 }
-
 ###
-### OWNERS LOW PRIORITIES NEW VIEWED AND DONE MESSAGES
+
 POST {{SignalRWebHub_HostAddress}}/weatherforecast/
 Content-Type: application/json
 
 {
     "RoomName": "Enginnering_Room",
-    "messageStatus": "NEW",
+    "messageStatus": "NOTVIEWED",
     "messageVisible": true,
-    "messageTitle": "Owner_New-Message/Low-Priority", 
-  "content": "This is a new message with a low priority sent to the owner, you can acknowledge viewing ,done ,archive and reply using the icons below", 
-    "sender": "Admin@massload.com", 
-"MessageOwnerStatus": "NEW",
-    "targetRecipient":"softwareeng@massload.com",
-    "messagePriority": false
-}
-
-###
-POST {{SignalRWebHub_HostAddress}}/weatherforecast/
-Content-Type: application/json
-
-{
-    "RoomName": "Enginnering_Room",
-    "messageStatus": "VIEWED",
-    "messageVisible": true,
-    "messageTitle": "Owner_Viewed-Message/Low-Priority", 
-    "content": "This is a View message with a high priority sent to the owner", 
-    "sender": "Admin@massload.com", 
-"MessageOwnerStatus": "VIEWED",
-    "targetRecipient":"softwareeng@massload.com",
-    "messagePriority": false
-}
-
-
-
-###
-POST {{SignalRWebHub_HostAddress}}/weatherforecast/
-Content-Type: application/json
-
-{
-    "RoomName": "Enginnering_Room",
-    "messageStatus": "DONE",
-    "messageVisible": true,
-    "messageTitle": "Owner_Done-Message/Low-Priority", 
-    "content": "This is a View message with a high priority sent to the owner", 
+    "messageTitle": "Owner_NOTVIEWED-DONE", 
+    "content": "This is a done message", 
+    "MessageOwnerStatus": "DONE",
     "sender": "Admin@massload.com", 
     "targetRecipient":"softwareeng@massload.com"
-  
+ 
 }
 
 ###  PARTICIPANT HIGH PRIORITIES NEW VIEWED AND DONE MESSAGES
@@ -111,11 +79,12 @@ Content-Type: application/json
 
 {
     "RoomName": "Enginnering_Room",
-    "messageStatus": "NEW",
+    "messageStatus": "NOTVIEWED",
     "messageVisible": true,
-    "messageTitle": "Participant_New-Message/High-Priority/Target owner not viewed", 
+    "messageTitle": "Participant_NOTVIEWED/NOTDONE", 
     "content": "This is a new message with a high priority sent to the owner, you can acknowledge viewing  ,archive and reply using the icons below", 
     "sender": "Admin@massload.com", 
+     "MessageOwnerStatus": "NOTDONE",
     "targetRecipient":"assembler@massload.com"
 
 }
@@ -130,9 +99,10 @@ Content-Type: application/json
     "RoomName": "Enginnering_Room",
     "messageStatus": "VIEWED",
     "messageVisible": true,
-    "messageTitle": "Participant_Viewed-Message/High-Priority- TargetOwner NotViewed", 
+    "messageTitle": "Participant_VIEWED/NOTDONE", 
     "content": "This is a View message with a high priority sent to  assembler@massload.com but can been seen as a participant", 
     "sender": "Admin@massload.com", 
+     "MessageOwnerStatus": "NOTDONE",
     "targetRecipient":"assembler@massload.com"
 }
 
@@ -143,10 +113,11 @@ Content-Type: application/json
 
 {
     "RoomName": "Enginnering_Room",
-    "messageStatus": "DONE",
+    "messageStatus": "NOTVIEWED",
     "messageVisible": true,
-    "messageTitle": "Participant_Done-Message/High-Priority", 
+    "messageTitle": "Participant_NOTVIEWED/DONE", 
     "content": "This is a View message with a high priority sent to to  assembler@massload.com but  participant receives a copy", 
+     "MessageOwnerStatus": "DONE",
     "sender": "Admin@massload.com", 
 
     "targetRecipient":"assembler@massload.com"
@@ -161,47 +132,13 @@ Content-Type: application/json
 
 {
     "RoomName": "Enginnering_Room",
-    "messageStatus": "NEW",
+    "messageStatus": "VIEWED",
     "messageVisible": true,
-    "messageTitle": "Participant_New-Message/Low-PriorityOWNERVIEWED", 
+    "messageTitle": "Participant_VIEWED/DONE", 
   "content": "This is a new message with a low priority sent to   assembler@massload.com but received as a participant, you can acknowledge viewing  ,archive and reply using the icons below", 
     "sender": "Admin@massload.com", 
-
+     "MessageOwnerStatus": "DONE",
     "targetRecipient":"assembler@massload.com"
 
 }
 
-###
-POST {{SignalRWebHub_HostAddress}}/weatherforecast/
-Content-Type: application/json
-
-{
-    "RoomName": "Enginnering_Room",
-    "messageStatus": "VIEWED",
-    "messageVisible": true,
-    "messageTitle": "Participant_Viewed-Message/Low-Priority", 
-    "content": "This is a View message with a low priority sent to   assembler@massload.com but received as a participant", 
-    "sender": "Admin@massload.com", 
-    "MessageOwnerStatus":"DONE",
-    "targetRecipient":"assembler@massload.com",
-    "messagePriority": false
-}
-
-
-
-###
-
-POST {{SignalRWebHub_HostAddress}}/weatherforecast/
-Content-Type: application/json
-
-{
-    "RoomName": "Enginnering_Room",
-    "messageStatus": "DONE",
-    "messageVisible": true,
-    "messageTitle": "Participant_Done-Message/Low-Priority owner done", 
-    "content": "This is a View message with a low priority sent to to  assembler@massload.com but received as a participant", 
-    "sender": "Admin@massload.com", 
-"MessageOwnerStatus":"DONE",
-    "targetRecipient":"assembler@massload.com",
-    "messagePriority": false
-}

@@ -17,12 +17,12 @@
         public string MessageTitle { get; set; } = string.Empty;
         //public string MessageType { get; set; }
         public bool MessageOwner { get; set; }
-       // public string MessageUrl { get; set; }
+        // public string MessageUrl { get; set; }
 
         public string MessageId { get; set; }
         public string RoomName { get; set; }
-       // public string MessageOwnerStatus { get; set; } = "NEW";//VIEWED,DONE,
-        public string MessageStatus { get; set; } = "NEW";//VIEWED,DONE,
+        public string MessageOwnerStatus { get; set; } = "NOTDONE";//,DONE,
+        public string MessageStatus { get; set; } = "NOTVIEWED";//VIEWED,
         public bool MessageVisible { get; set; } = true;// if it is false, it means it has been archived
         //public bool MessagePriority { get; set; } = true;////High, Normal,
 
