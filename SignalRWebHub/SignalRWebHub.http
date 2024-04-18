@@ -134,11 +134,55 @@ Content-Type: application/json
     "RoomName": "Enginnering_Room",
     "messageStatus": "VIEWED",
     "messageVisible": true,
-    "messageTitle": "Participant_VIEWED/DONE", 
+    "messageTitle": "--Participant_VIEWED/DONE", 
   "content": "This is a new message with a low priority sent to   assembler@massload.com but received as a participant, you can acknowledge viewing  ,archive and reply using the icons below", 
     "sender": "Admin@massload.com", 
      "MessageOwnerStatus": "DONE",
     "targetRecipient":"assembler@massload.com"
 
 }
+### PARTICIPANTS LOW PRIORITIES NEW VIEWED AND DONE MESSAGES
+POST {{SignalRWebHub_HostAddress}}/weatherforecast/
+Content-Type: application/json
 
+{
+    "RoomName": "Enginnering_Room",
+    "messageStatus": "VIEWED",
+    "messageVisible": true,
+    "messageTitle": "Participant_VIEWED/DONE", 
+  "content": "This is a new message with a low priority sent to   assembler@massload.com but received as a participant, you can acknowledge viewing  ,archive and reply using the icons below", 
+    "sender": "Admin@massload.com", 
+     "MessageOwnerStatus": "NOTDONE",
+    "targetRecipient":"softwareeng@massload.com"
+
+}
+### PARTICIPANTS LOW PRIORITIES NEW VIEWED AND DONE MESSAGES
+POST {{SignalRWebHub_HostAddress}}/weatherforecast/
+Content-Type: application/json
+
+{
+    "RoomName": "Enginnering_Room",
+    "messageStatus": "NOTVIEWED",
+    "messageVisible": true,
+    "messageTitle": "Participant_VIEWED/DONE", 
+  "content": "This is a new message with a low priority sent to   assembler@massload.com but received as a participant, you can acknowledge viewing  ,archive and reply using the icons below", 
+    "sender": "Admin@massload.com", 
+     "MessageOwnerStatus": "NOTDONE",
+    "targetRecipient":"softwareeng@massload.com"
+
+}
+### PARTICIPANTS LOW PRIORITIES NEW VIEWED AND DONE MESSAGES
+POST {{SignalRWebHub_HostAddress}}/weatherforecast/
+Content-Type: application/json
+
+{
+    "RoomName": "Enginnering_Room",
+    "messageStatus": "NOTVIEWED",
+    "messageVisible": true,
+    "messageTitle": "Participant_VIEWED/DONE", 
+  "content": "This is a new message with a low priority sent to   assembler@massload.com but received as a participant, you can acknowledge viewing  ,archive and reply using the icons below", 
+    "sender": "Admin@massload.com", 
+     "MessageOwnerStatus": "DONE",
+    "targetRecipient":"softwareeng@massload.com"
+
+}
